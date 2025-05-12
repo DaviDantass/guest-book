@@ -13,7 +13,7 @@ def renderizar_pagina(mensagens, mensagem_sucesso=""):
         html = f.read() 
 
     bloco_sucesso = f"<p><strong>{mensagem_sucesso}</strong></p>" if mensagem_sucesso else "" 
-    html = html.replace("", bloco_sucesso) 
+    html = html.replace("<!-- MENSAGEM_SUCESSO -->", bloco_sucesso) 
     lista_html = [] 
     for linha in mensagens: 
         try:
@@ -30,8 +30,8 @@ def renderizar_pagina(mensagens, mensagem_sucesso=""):
         except ValueError:
             continue 
 
-    html = html.replace("", f"<ul>{''.join(lista_html)}</ul>") 
-    html = html.replace("", f'<link rel="stylesheet" href="{css_path}">') 
+    html = html.replace("<!-- MENSAGENS_LISTA -->", f"<ul>{''.join(lista_html)}</ul>") 
+    html = html.replace("<!-- CSS para estilizacao -->", f'<link rel="stylesheet" href="{css_path}">') 
 
     return html # Retorna o HTML final renderizado.
 
