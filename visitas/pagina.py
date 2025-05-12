@@ -1,4 +1,4 @@
-from mensagens import ler_mensagens # Importa a função para ler as mensagens.
+from mensagens import ler_mensagens
 import os
 
 def renderizar_pagina(mensagens, mensagem_sucesso=""):
